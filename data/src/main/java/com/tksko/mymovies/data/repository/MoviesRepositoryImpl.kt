@@ -28,4 +28,8 @@ class MoviesRepositoryImpl @Inject constructor(
     ).flow.map { pagingData ->
         pagingData.map { entity -> entity.toMovieResult() }
     }
+
+    override suspend fun searchMovies(query: String) = moviesDao.searchMovies("%$query%").map {
+        it.toMovieResult()
+    }
 }

@@ -10,4 +10,5 @@
 
     <color name="screen_background_color">#2e2e2e</color>
     <color name="genre_background_color">#80000000</color>
+    <color name="search_result_genre_color">#717171</color>
 </resources>

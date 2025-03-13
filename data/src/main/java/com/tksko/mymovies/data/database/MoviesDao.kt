@@ -13,6 +13,9 @@ interface MoviesDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertMovies(movies: List<MovieDbModel>)
 
+    @Query("SELECT * FROM MovieDbModel WHERE title LIKE :query")
+    suspend fun searchMovies(query: String): List<MovieDbModel>
+
     @Query("SELECT * FROM MovieDbModel order by page asc")
     fun getMoviesPage(): PagingSource<Int, MovieDbModel>
 
