@@ -1,6 +1,6 @@
 package com.tksko.mymovies.domain.config
 
-const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w500"
+const val POSTER_BASE_URL = "https://image.tmdb.org/t/p/w780"
 
 const val TMDB_PARAM_API_KEY = "api_key"
 const val TMDB_PARAM_LANGUAGE = "language"

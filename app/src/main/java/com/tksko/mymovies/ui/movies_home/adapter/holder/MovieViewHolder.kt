@@ -7,7 +7,8 @@ import com.tksko.mymovies.databinding.ItemMoviesBinding
 import com.tksko.mymovies.domain.model.MovieResult
 
 class MovieViewHolder(
-    private val binding: ItemMoviesBinding
+    private val binding: ItemMoviesBinding,
+    private val onClick: ((MovieResult) -> Unit)? = null
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(item: MovieResult) = binding.apply {
@@ -19,6 +20,9 @@ class MovieViewHolder(
                     crossfade(true)
                     scale(Scale.FILL)
                 }
+            }
+            root.setOnClickListener {
+                onClick?.invoke(this)
             }
         }
     }

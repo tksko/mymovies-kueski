@@ -9,7 +9,9 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.findNavController
 import com.tksko.mymovies.databinding.FragmentMoviesHomeBinding
+import com.tksko.mymovies.domain.model.MovieResult
 import com.tksko.mymovies.ui.movies_home.adapter.MoviesAdapter
 import com.tksko.mymovies.ui.movies_home.adapter.MoviesLoadStateAdapter
 import com.tksko.mymovies.ui.movies_home.viewmodel.MoviesViewModel
@@ -25,7 +27,7 @@ class MoviesHomeFragment : Fragment() {
     }
 
     private val moviesAdapter: MoviesAdapter by lazy {
-        MoviesAdapter()
+        MoviesAdapter(::onMoviesItemClick)
     }
 
     private val moviesLoadStateAdapter: MoviesLoadStateAdapter by lazy {
@@ -66,4 +68,12 @@ class MoviesHomeFragment : Fragment() {
     }
 
     private fun retryMoviesPageLoad() = moviesAdapter.retry()
+
+    private fun onMoviesItemClick(item: MovieResult) {
+        findNavController().navigate(
+            MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailsFragment(
+                item
+            )
+        )
+    }
 }
