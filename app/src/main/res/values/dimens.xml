@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="margin_small">2dp</dimen>
+    <dimen name="margin_normal">5dp</dimen>
+    <dimen name="margin_large">10dp</dimen>
+    <dimen name="margin_x_large">20dp</dimen>
+
+    <dimen name="image_rounded_corners_size">16dp</dimen>
+</resources>

@@ -1,0 +1,27 @@
+[versions]
+kotlin = "1.8.21"
+gradlePlugin = "8.1.4"
+core = "1.10.1"
+appCompat = "1.7.0"
+hilt = "2.55"
+hilt-compiler = "1.2.0"
+navigationVersion = "2.8.9"
+lifecycle = "2.8.7"
+materialVersion = "1.12.0"
+
+[libraries]
+gradle-plugin = { module = "com.android.tools.build:gradle", version.ref = "gradlePlugin" }
+kotlin-gradle-plugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+androidx-core = { module = "androidx.core:core-ktx", version.ref = "core" }
+androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appCompat" }
+material = { module = "com.google.android.material:material", version.ref = "materialVersion" }
+hilt-android-gradle-plugin = { group = "com.google.dagger", name = "hilt-android-gradle-plugin", version.ref = "hilt" }
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+hilt-android-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt-compiler" }
+lifecycle-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+lifecycle-livedata = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+lifecycle-compiler = { group = "androidx.lifecycle", name = "lifecycle-compiler", version.ref = "lifecycle" }
+navigation-args-plugin = { module = "androidx.navigation:navigation-safe-args-gradle-plugin", version.ref = "navigationVersion" }
+navigation-fragment = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationVersion" }
+navigation-ui = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationVersion" }

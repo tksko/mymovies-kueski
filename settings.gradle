@@ -1,0 +1,17 @@
+dependencyResolutionManagement {
+
+    versionCatalogs {
+        configs {
+            from(files("gradle/configs.versions.toml"))
+        }
+        coreLibs {
+            from(files("gradle/core.versions.toml"))
+        }
+    }
+}
+
+rootProject.name = "MyMovies-Kueski"
+
+include ':app'
+include ':domain'
+include ':data'
