@@ -56,7 +56,12 @@ dependencies {
     implementation coreLibs.lifecycle.viewmodel
     implementation coreLibs.lifecycle.livedata
     kapt coreLibs.lifecycle.compiler
-    
+
+    implementation coreLibs.androidx.pagging
+    implementation coreLibs.androidx.pagging.runtime
+
+    implementation coreLibs.coil
+
     implementation coreLibs.hilt.android
     kapt coreLibs.hilt.compiler
     kapt coreLibs.hilt.android.compiler

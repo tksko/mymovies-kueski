@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyMovies</string>
+
+    <!-- Movies Load State texts -->
+    <string name="button_retry">Reintentar</string>
+    <string name="message_error_data_problems">Hubo un error al intentar obtener la información.</string>
 </resources>

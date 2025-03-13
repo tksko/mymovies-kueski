@@ -36,4 +36,6 @@ android {
     }
 }
 
-dependencies {}
+dependencies {
+    implementation coreLibs.androidx.pagging
+}
