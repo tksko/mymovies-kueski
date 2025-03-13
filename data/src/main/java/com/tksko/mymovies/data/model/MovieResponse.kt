@@ -21,11 +21,12 @@ data class MovieResponse(
     val releaseDate: Date
 )
 
-fun MovieResponse.toMovieResult() = MovieResult(
+fun MovieResponse.toMovieResult(genreName: String?) = MovieResult(
     id = id,
     name = title,
     overview = overview,
     backdropPath = backdropPath,
     posterPath = posterPath,
-    releaseDate = releaseDate
+    releaseDate = releaseDate,
+    genreName = genreName
 )

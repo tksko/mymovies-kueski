@@ -15,6 +15,7 @@ import java.lang.Exception
 @OptIn(ExperimentalPagingApi::class)
 class MoviesRemoteMediator @Inject constructor(
     private val moviesApiServices: MoviesApiServices,
+    private val genreRepository: GenreRepository,
     private val moviesDao: MoviesDao
 ) : RemoteMediator<Int, MovieDbModel>() {
 
@@ -53,6 +54,8 @@ class MoviesRemoteMediator @Inject constructor(
     @Throws(Exception::class)
     private suspend fun getMovies(page: Int): List<MovieResult> =
         moviesApiServices.getMovies(page).body()?.results?.map {
-            it.toMovieResult()
+            it.toMovieResult(
+                genreName = genreRepository.getGenreName(it.genreIds.firstOrNull())
+            )
         } ?: emptyList()
 }

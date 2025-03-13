@@ -3,6 +3,7 @@ package com.tksko.mymovies.data.di
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.tksko.mymovies.data.BuildConfig
+import com.tksko.mymovies.data.api.GenresApiServices
 import com.tksko.mymovies.data.api.MoviesApiServices
 import com.tksko.mymovies.domain.config.TMDB_PARAM_API_KEY
 import com.tksko.mymovies.domain.config.TMDB_PARAM_LANGUAGE
@@ -60,4 +61,8 @@ object NetworkModule {
     @Provides
     fun provideMoviesApiServices(retrofit: Retrofit): MoviesApiServices =
         retrofit.create(MoviesApiServices::class.java)
+
+    @Provides
+    fun provideGenresApiServices(retrofit: Retrofit): GenresApiServices =
+        retrofit.create(GenresApiServices::class.java)
 }

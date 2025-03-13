@@ -44,4 +44,20 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:text="Movie Name" />
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/text_genre"
+        style="@style/TextAppearance.Material3.BodyMedium"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"
+        android:background="@color/genre_background_color"
+        android:includeFontPadding="false"
+        android:paddingHorizontal="@dimen/margin_x_large"
+        android:paddingVertical="@dimen/margin_normal"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Genre Name" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

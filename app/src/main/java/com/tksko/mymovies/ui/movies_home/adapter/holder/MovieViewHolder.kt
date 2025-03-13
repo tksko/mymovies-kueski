@@ -13,6 +13,7 @@ class MovieViewHolder(
     fun bind(item: MovieResult) = binding.apply {
         with(item) {
             textName.text = name
+            textGenre.text = genreName
             with(imageMoviesPoster) {
                 load(getBackdrop()) {
                     crossfade(true)

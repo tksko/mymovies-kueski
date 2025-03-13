@@ -14,6 +14,7 @@ data class MovieDbModel(
     val backdropPath: String? = null,
     val posterPath: String? = null,
     val releaseDate: Date? = null,
+    val genreName: String? = null,
     val page: Int = 1
 ) {
     constructor(movieResult: MovieResult, page: Int) : this(
@@ -23,6 +24,7 @@ data class MovieDbModel(
         movieResult.backdropPath,
         movieResult.posterPath,
         movieResult.releaseDate,
+        movieResult.genreName,
         page
     )
 }
@@ -33,5 +35,6 @@ fun MovieDbModel.toMovieResult() = MovieResult(
     overview = overview,
     backdropPath = backdropPath,
     posterPath = posterPath,
-    releaseDate = releaseDate
+    releaseDate = releaseDate,
+    genreName = genreName
 )

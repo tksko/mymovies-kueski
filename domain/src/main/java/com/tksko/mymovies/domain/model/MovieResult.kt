@@ -12,7 +12,8 @@ data class MovieResult(
     val overview: String? = null,
     val backdropPath: String? = null,
     val posterPath: String? = null,
-    val releaseDate: Date? = null
+    val releaseDate: Date? = null,
+    val genreName: String? = null
 ) : Parcelable {
 
     fun getPoster() = POSTER_BASE_URL + posterPath.orEmpty()

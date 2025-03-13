@@ -5,7 +5,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.tksko.mymovies.data.model.MovieDbModel
 
-@Database(entities = [MovieDbModel::class], version = 1, exportSchema = false)
+@Database(entities = [MovieDbModel::class], version = 2, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class MyMoviesDatabase : RoomDatabase() {
 
