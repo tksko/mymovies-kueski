@@ -10,12 +10,14 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.MenuProvider
+import androidx.core.view.doOnPreDraw
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
 import com.tksko.mymovies.R
 import com.tksko.mymovies.databinding.FragmentMoviesHomeBinding
@@ -25,6 +27,7 @@ import com.tksko.mymovies.ui.movies_home.adapter.MoviesLoadStateAdapter
 import com.tksko.mymovies.ui.movies_home.adapter.SearchMoviesAdapter
 import com.tksko.mymovies.ui.movies_home.viewmodel.MoviesViewModel
 import com.tksko.mymovies.utils.hide
+import com.tksko.mymovies.utils.setScrollBehavior
 import com.tksko.mymovies.utils.show
 import com.tksko.mymovies.utils.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -61,6 +64,15 @@ class MoviesHomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupSearch()
         setupLists()
+        setupEnterAnimation()
+    }
+
+    private fun setupEnterAnimation() {
+        postponeEnterTransition()
+        binding.apply {
+            listMovies.doOnPreDraw { startPostponedEnterTransition() }
+            listSearch.doOnPreDraw { startPostponedEnterTransition() }
+        }
     }
 
     private fun setupLists() {
@@ -81,17 +93,25 @@ class MoviesHomeFragment : Fragment() {
                     }
                 }
             }
-            moviesViewModel.searchResultsLiveData.observe(viewLifecycleOwner, Observer(::onSearchResults))
+            moviesViewModel.searchResultsLiveData.observe(
+                viewLifecycleOwner,
+                Observer(::onSearchResults)
+            )
         }
     }
 
     private fun retryMoviesPageLoad() = moviesAdapter.retry()
 
-    private fun onMoviesItemClick(item: MovieResult) {
+    private fun onMoviesItemClick(item: MovieResult, target: View) {
+        val extras = FragmentNavigatorExtras(
+            target to target.transitionName
+        )
         findNavController().navigate(
             MoviesHomeFragmentDirections.actionMoviesHomeFragmentToMoviesDetailsFragment(
-                item
-            )
+                item,
+                target.transitionName
+            ),
+            extras
         )
     }
 
@@ -123,12 +143,14 @@ class MoviesHomeFragment : Fragment() {
         }
     }
 
-    private fun onSearchResults(newResults: List<MovieResult> = emptyList()) {
+    private fun onSearchResults(newResults: List<MovieResult> = emptyList()) = binding.apply {
         if (newResults.isNotEmpty()) {
             searchAdapter.submitList(newResults)
-            binding.listSearch.show()
+            listSearch.show()
+            toolbar.setScrollBehavior(isScrollable = false)
         } else {
-            binding.listSearch.hide()
+            listSearch.hide()
+            toolbar.setScrollBehavior(isScrollable = true)
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.tksko.mymovies.ui.movies_home.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import com.tksko.mymovies.databinding.ItemMoviesBinding
@@ -9,7 +10,7 @@ import com.tksko.mymovies.ui.movies_home.adapter.holder.MovieViewHolder
 import com.tksko.mymovies.utils.MoviesItemDiffer
 
 class MoviesAdapter(
-    private val onClick: ((MovieResult) -> Unit)? = null
+    private val onClick: ((MovieResult, View) -> Unit)? = null
 ) : PagingDataAdapter<MovieResult, MovieViewHolder>(MoviesItemDiffer) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {

@@ -1,6 +1,7 @@
 package com.tksko.mymovies.ui.movies_home.adapter
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.tksko.mymovies.databinding.ItemSearchResultBinding
@@ -9,7 +10,7 @@ import com.tksko.mymovies.ui.movies_home.adapter.holder.SearchResultViewHolder
 import com.tksko.mymovies.utils.MoviesItemDiffer
 
 class SearchMoviesAdapter(
-    private val onClick: ((MovieResult) -> Unit)? = null
+    private val onClick: ((MovieResult, View) -> Unit)? = null
 ) : ListAdapter<MovieResult, SearchResultViewHolder>(MoviesItemDiffer) {
 
     override fun onCreateViewHolder(

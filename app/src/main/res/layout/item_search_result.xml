@@ -28,7 +28,7 @@
         android:includeFontPadding="false"
         android:maxLines="1"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/text_genre"
+        app:layout_constraintBottom_toTopOf="@+id/text_more_info"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/image_movies_poster"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,11 +36,12 @@
         tools:text="Movie Name" />
 
     <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/text_genre"
-        style="@style/TextAppearance.Material3.BodySmall"
+        android:id="@+id/text_more_info"
+        style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_x_large"
+        android:layout_marginVertical="@dimen/margin_normal"
         android:ellipsize="end"
         android:includeFontPadding="false"
         android:maxLines="1"

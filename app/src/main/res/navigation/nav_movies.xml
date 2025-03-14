@@ -23,5 +23,9 @@
             android:name="movieResult"
             app:argType="com.tksko.mymovies.domain.model.MovieResult"
             app:nullable="false" />
+        <argument
+            android:name="transitionName"
+            app:argType="string"
+            app:nullable="false" />
     </fragment>
 </navigation>
