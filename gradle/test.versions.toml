@@ -1,0 +1,11 @@
+[versions]
+junit = "4.13.2"
+mockk = "1.13.17"
+androidx-core = "2.2.0"
+kotlin-coroutines =  "1.8.1"
+
+[libraries]
+junit = { module = "junit:junit", version.ref = "junit" }
+androidx-core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx-core" }
+kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlin-coroutines" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }

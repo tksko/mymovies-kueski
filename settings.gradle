@@ -7,6 +7,9 @@ dependencyResolutionManagement {
         coreLibs {
             from(files("gradle/core.versions.toml"))
         }
+        testLibs {
+            from(files("gradle/test.versions.toml"))
+        }
     }
 }
 

@@ -65,4 +65,9 @@ dependencies {
     implementation coreLibs.hilt.android
     kapt coreLibs.hilt.compiler
     kapt coreLibs.hilt.android.compiler
+
+    testImplementation testLibs.junit
+    testImplementation testLibs.mockk
+    testImplementation testLibs.androidx.core.testing
+    testImplementation testLibs.kotlinx.coroutines.test
 }
